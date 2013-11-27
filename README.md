@@ -9,18 +9,21 @@ Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-crazyflie.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-crazyflie)
 
 ## Getting Started
+
 Install the module with: `npm install cylon-crazyflie`
 
 ## Examples
 
-### Javascript:
 ```javascript
+var Cylon = require('cylon');
 ...
+
 ```
 
-### CoffeeScript:
-```coffee-script
+```
+Cylon = require 'cylon'
 ...
+
 ```
 
 ## Documentation
@@ -32,6 +35,7 @@ Thank you!
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
 None yet...
 
 ## License
