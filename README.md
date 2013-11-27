@@ -2,7 +2,7 @@
 
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and physical computing using Node.js
 
-This module provides an adaptor and drivers for the Crazyflie nanocopter (http://www.bitcraze.se/).
+This module provides an adaptor and drivers for the Crazyflie nanocopter (http://www.bitcraze.se/). It uses the Aerogel node module (https://github.com/ceejbot/aerogel) created by [@ceejbot](https://github.com/ceejbot) thank you!
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
