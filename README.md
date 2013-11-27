@@ -14,6 +14,8 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 Install the module with: `npm install cylon-crazyflie`
 
+You will also need to install the latest beta of firmware to the Crazyflie itself to use the 'hover' mode from [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin)
+
 ## Examples
 
 ```javascript
