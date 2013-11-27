@@ -1,8 +1,19 @@
 (function() {
   'use strict';
-  var cylonCrazyflie;
+  var crazyflie, namespace;
 
-  cylonCrazyflie = source("cylon-crazyflie");
+  namespace = require('node-namespace');
+
+  namespace('Cylon', function() {
+    return this.Basestar = (function() {
+      function Basestar() {}
+
+      return Basestar;
+
+    })();
+  });
+
+  crazyflie = source("cylon-crazyflie");
 
   describe("basic tests", function() {
     it("standard async test", function(done) {
@@ -34,10 +45,14 @@
       data[0].should.be.eql(obj);
       return data[0].should.be.equal(obj);
     });
-    return it("cylon-crazyflie should be awesome", function() {
-      cylonCrazyflie.should.have.keys('awesome');
-      cylonCrazyflie.awesome.should.be.a('function');
-      return cylonCrazyflie.awesome().should.be.equal('awesome');
+    it("should be able to register", function() {
+      return crazyflie.register.should.be.a('function');
+    });
+    it("should be able to create adaptor", function() {
+      return crazyflie.adaptor.should.be.a('function');
+    });
+    return it("should be able to create driver", function() {
+      return crazyflie.driver.should.be.a('function');
     });
   });
 

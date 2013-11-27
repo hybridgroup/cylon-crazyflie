@@ -1,6 +1,13 @@
 'use strict';
 
-cylonCrazyflie = source("cylon-crazyflie")
+namespace = require 'node-namespace'
+
+# Needed so that tests don't implode
+namespace 'Cylon', ->
+  class @Basestar
+    constructor: ->
+
+crazyflie = source("cylon-crazyflie")
 
 describe "basic tests", ->
   it "standard async test", (done) ->
@@ -29,8 +36,11 @@ describe "basic tests", ->
     # hard equal
     data[0].should.be.equal obj
 
-  # Now on to a `real` test
-  it "cylon-crazyflie should be awesome", ->
-    cylonCrazyflie.should.have.keys 'awesome'
-    cylonCrazyflie.awesome.should.be.a 'function'
-    cylonCrazyflie.awesome().should.be.equal 'awesome'
+  it "should be able to register", ->
+    crazyflie.register.should.be.a 'function'
+
+  it "should be able to create adaptor", ->
+    crazyflie.adaptor.should.be.a 'function'
+    
+  it "should be able to create driver", ->
+    crazyflie.driver.should.be.a 'function'

@@ -6,7 +6,22 @@
  * Licensed under the Apache 2.0 license.
 ###
 
-'use strict';
+namespace = require 'node-namespace'
 
-exports.awesome = ->
-  'awesome'
+require './commands'
+require './adaptor'
+require './driver'
+
+module.exports =
+  adaptor: (args...) ->
+    new Cylon.Adaptor.Crazyflie(args...)
+
+  driver: (args...) ->
+    new Cylon.Driver.Crazyflie(args...)
+
+  register: (robot) ->
+    Logger.info "Registering Crazyflie adaptor for #{robot.name}"
+    robot.registerAdaptor 'cylon-crazyflie', 'crazyflie'
+
+    Logger.info "Registering Crazyflie driver for #{robot.name}"
+    robot.registerDriver 'cylon-crazyflie', 'crazyflie'

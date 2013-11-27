@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "node-namespace": "~1.0.0",
-    "cylon": "~0.5.0"
+    "cylon": "~0.6.0",
+    "aerogel": "0.0.5"
   }
 }
