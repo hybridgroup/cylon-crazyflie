@@ -6,6 +6,8 @@ This module provides an adaptor and drivers for the Crazyflie nanocopter (http:/
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
+Want to use the Go programming language to power your robots? Check out our sister project Gobot (http://gobot.io).
+
 [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-crazyflie.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-crazyflie)
 
 ## Getting Started
@@ -16,13 +18,42 @@ Install the module with: `npm install cylon-crazyflie`
 
 ```javascript
 var Cylon = require('cylon');
-...
+
+Cylon.robot({
+  connection: { name: 'crazyflie', adaptor: 'crazyflie' },
+  device: {name: 'drone', driver: 'crazyflie'},
+
+  work: function(my) {
+    my.drone.takeoff();
+    after((10).seconds(), function() { 
+      my.drone.land();
+    });
+    after((15).seconds(), function() { 
+      my.drone.shutdown();
+    });    
+  }
+}).start();
 
 ```
 
 ```
 Cylon = require 'cylon'
-...
+
+Cylon.robot
+  connection:
+    name: 'crazyflie', adaptor: 'crazyflie'
+
+  device:
+    name: 'drone', driver: 'crazyflie'
+
+  work: (my) ->
+    my.drone.takeoff()
+    after 10.seconds(), ->
+      my.drone.land()
+    after 15.seconds(), ->
+      my.drone.shutdown()
+
+.start()
 
 ```
 
