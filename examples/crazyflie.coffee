@@ -8,6 +8,7 @@ Cylon.robot
     name: 'drone', driver: 'crazyflie'
 
   work: (my) ->
+    #my.drone.setParam('flightmode.althold', true)
     my.drone.takeoff()
     after 10.seconds(), ->
       my.drone.land()

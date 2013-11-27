@@ -18,5 +18,6 @@ namespace "Cylon.Crazyflie", ->
     'setPitch',
     'setYaw',
     'setThrust',
-    'shutdown'
+    'shutdown',
+    'setParam'
   ]

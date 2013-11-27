@@ -5,6 +5,7 @@ Cylon.robot({
   device: {name: 'drone', driver: 'crazyflie'},
 
   work: function(my) {
+    //my.drone.setParam('flightmode.althold', true);
     my.drone.takeoff();
     after((10).seconds(), function() { 
       my.drone.land();

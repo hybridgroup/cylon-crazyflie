@@ -43,6 +43,10 @@
         return this.connection.stop();
       };
 
+      Crazyflie.prototype.setParam = function(param, value) {
+        return this.connection.setParam(param, value);
+      };
+
       return Crazyflie;
 
     })(Cylon.Basestar);

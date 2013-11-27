@@ -50,6 +50,10 @@
         return this.copter.shutdown();
       };
 
+      Crazyflie.prototype.setParam = function(param, value) {
+        return this.copter.driver.parameters.set(param, value);
+      };
+
       return Crazyflie;
 
     })(Cylon.Basestar);

@@ -31,3 +31,6 @@ namespace "Cylon.Driver", ->
     stop: ->
       Logger.info "#{@device.name} stopped"
       @connection.stop()
+
+    setParam: (param, value) ->
+      @connection.setParam(param, value)

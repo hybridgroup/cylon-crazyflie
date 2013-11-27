@@ -37,3 +37,6 @@ namespace "Cylon.Adaptor", ->
     disconnect: ->
       Logger.info "Disconnecting from Crazyflie '#{@name}'..."
       @copter.shutdown()
+
+    setParam: (param, value) ->
+      @copter.driver.parameters.set(param, value)
