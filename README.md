@@ -29,7 +29,7 @@ Cylon.robot({
       my.drone.land();
     });
     after((15).seconds(), function() { 
-      my.drone.shutdown();
+      my.drone.stop();
     });    
   }
 }).start();
@@ -51,7 +51,7 @@ Cylon.robot
     after 10.seconds(), ->
       my.drone.land()
     after 15.seconds(), ->
-      my.drone.shutdown()
+      my.drone.stop()
 
 .start()
 
