@@ -28,8 +28,8 @@
         this.connection = opts.connection;
         this.name = opts.name;
         this.aerogelDriver = new Aerogel.CrazyDriver();
+        this.aerogelDriver.radio = new Aerogel.CrazyRadio();
         this.copter = new Aerogel.Copter(this.aerogelDriver);
-        this.port = opts.port;
         this.connector = this.copter;
         this.proxyMethods(Cylon.Crazyflie.Commands, this.copter, this);
       }
@@ -39,10 +39,11 @@
       };
 
       Crazyflie.prototype.connect = function(callback) {
-        Logger.info("Connecting to Crazyflie '" + this.name + "'...");
-        this.copter.connect(this.port);
-        callback(null);
-        return this.connection.emit('connect');
+        Logger.info("Connecting to Crazyflie '" + this.name + "' on port '" + this.port + "'...");
+        return this.copter.connect(this.connection.port.toString()).then(function() {
+          callback(null);
+          return this.connection.emit('connect');
+        });
       };
 
       Crazyflie.prototype.disconnect = function() {

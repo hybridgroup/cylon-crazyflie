@@ -19,20 +19,19 @@ namespace "Cylon.Adaptor", ->
       @connection = opts.connection
       @name = opts.name
       @aerogelDriver = new Aerogel.CrazyDriver()
+      @aerogelDriver.radio = new Aerogel.CrazyRadio() #findCopters()
       @copter = new Aerogel.Copter(@aerogelDriver)
-      @port = opts.port
       @connector = @copter
       @proxyMethods Cylon.Crazyflie.Commands, @copter, this
 
     commands: -> Cylon.Crazyflie.Commands
 
     connect: (callback) ->
-      Logger.info "Connecting to Crazyflie '#{@name}'..."
+      Logger.info "Connecting to Crazyflie '#{@name}' on port '#{@port}'..."
 
-      @copter.connect @port
-
-      (callback)(null)
-      @connection.emit 'connect'
+      @copter.connect(@connection.port.toString()).then ->
+        (callback)(null)
+        @connection.emit 'connect'
 
     disconnect: ->
       Logger.info "Disconnecting from Crazyflie '#{@name}'..."

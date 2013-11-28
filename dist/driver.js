@@ -40,7 +40,7 @@
 
       Crazyflie.prototype.stop = function() {
         Logger.info("" + this.device.name + " stopped");
-        return this.connection.stop();
+        return this.connection.disconnect();
       };
 
       Crazyflie.prototype.setParam = function(param, value) {
