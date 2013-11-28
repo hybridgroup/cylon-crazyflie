@@ -18,6 +18,7 @@ You will also need to install the latest beta of firmware to the Crazyflie itsel
 
 ## Examples
 
+### JavaScript
 ```javascript
 var Cylon = require('cylon');
 
@@ -26,43 +27,45 @@ Cylon.robot({
   device: {name: 'drone', driver: 'crazyflie'},
 
   work: function(my) {
-    my.drone.takeoff();
-    after((10).seconds(), function() { 
-      my.drone.land();
+    my.drone.on('start', function() {
+      my.drone.takeoff();
+      after((10).seconds(), function() { 
+        my.drone.land();
+      });
+      after((15).seconds(), function() { 
+        my.drone.stop();
+      });
     });
-    after((15).seconds(), function() { 
-      my.drone.stop();
-    });    
   }
 }).start();
-
 ```
 
+### CoffeeScript
 ```
 Cylon = require 'cylon'
 
 Cylon.robot
   connection:
-    name: 'crazyflie', adaptor: 'crazyflie'
+    name: 'crazyflie', adaptor: 'crazyflie', port: "radio://1/10/250KPS"
 
   device:
     name: 'drone', driver: 'crazyflie'
 
   work: (my) ->
-    my.drone.takeoff()
-    after 10.seconds(), ->
-      my.drone.land()
-    after 15.seconds(), ->
-      my.drone.stop()
+    my.drone.on 'start', ->
+      my.drone.takeoff()
+      after 10.seconds(), ->
+        my.drone.land()
+      after 15.seconds(), ->
+        my.drone.stop()
 
 .start()
-
 ```
 
-## Hovering
+## Hover Mode
 
 ```
-  my.drone.setParam('flightmode.althold', true)
+  my.drone.setParam('flightmode.althold', true);
 ```
 
 ## Documentation
@@ -75,7 +78,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-None yet...
+[![NPM](https://nodei.co/npm/cylon-crazyflie.png?compact=true)](https://nodei.co/npm/cylon-crazyflie/)
+
+Version 0.1.0 - Initial release
 
 ## License
 Copyright (c) 2013 The Hybrid Group. Licensed under the Apache 2.0 license.
