@@ -59,6 +59,12 @@ Cylon.robot
 
 ```
 
+## Hovering
+
+```
+  my.drone.setParam('flightmode.althold', true)
+```
+
 ## Documentation
 We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
 
