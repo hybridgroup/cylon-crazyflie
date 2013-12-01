@@ -23,7 +23,7 @@ You will also need to install the latest beta of firmware to the Crazyflie itsel
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'crazyflie', adaptor: 'crazyflie' },
+  connection: { name: 'crazyflie', adaptor: 'crazyflie', port: 'radio://1/10/250KPS' },
   device: {name: 'drone', driver: 'crazyflie'},
 
   work: function(my) {

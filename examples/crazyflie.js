@@ -1,4 +1,4 @@
-ar Cylon = require('cylon');
+var Cylon = require('cylon');
 
 Cylon.robot({
   connection: { name: 'crazyflie', adaptor: 'crazyflie', port: 'radio://1/10/250KPS' },
