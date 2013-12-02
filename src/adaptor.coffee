@@ -8,7 +8,7 @@
 
 'use strict';
 
-require './cylon-crazyflie'
+require 'cylon'
 Aerogel = require 'aerogel'
 namespace = require 'node-namespace'
 
@@ -27,7 +27,7 @@ namespace "Cylon.Adaptor", ->
     commands: -> Cylon.Crazyflie.Commands
 
     connect: (callback) ->
-      Logger.info "Connecting to Crazyflie '#{@name}' on port '#{@port}'..."
+      Logger.info "Connecting to Crazyflie '#{@name}' on port '#{@connection.port}'..."
 
       @copter.connect(@connection.port.toString()).then ->
         (callback)(null)

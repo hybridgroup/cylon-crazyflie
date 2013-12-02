@@ -6,8 +6,7 @@
  * Licensed under the Apache 2.0 license.
 ###
 
-namespace = require 'node-namespace'
-
+require 'cylon'
 require './commands'
 require './adaptor'
 require './driver'

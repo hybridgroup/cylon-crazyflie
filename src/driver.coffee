@@ -8,7 +8,7 @@
 
 'use strict';
 
-require './cylon-crazyflie'
+#require './cylon-crazyflie'
 
 namespace = require 'node-namespace'
 

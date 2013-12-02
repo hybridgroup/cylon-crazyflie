@@ -9,7 +9,7 @@ namespace 'Cylon', ->
 
 crazyflie = source("cylon-crazyflie")
 
-describe "basic tests", ->
+describe "Cylon.Crazyflie", ->
   it "standard async test", (done) ->
     bool = false
     bool.should.be.false

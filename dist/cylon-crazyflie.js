@@ -8,10 +8,9 @@
 
 
 (function() {
-  var namespace,
-    __slice = [].slice;
+  var __slice = [].slice;
 
-  namespace = require('node-namespace');
+  require('cylon');
 
   require('./commands');
 

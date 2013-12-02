@@ -15,7 +15,7 @@
 
   crazyflie = source("cylon-crazyflie");
 
-  describe("basic tests", function() {
+  describe("Cylon.Crazyflie", function() {
     it("standard async test", function(done) {
       var bool;
       bool = false;
