@@ -1,6 +1,8 @@
 (function() {
   'use strict';
-  describe('Cylon.Adaptor.Crazyflie', function() {
+  source('adaptor');
+
+  describe('Cylon.Adaptors.Crazyflie', function() {
     return it('needs test coverage');
   });
 
