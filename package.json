@@ -1,6 +1,6 @@
 {
   "name": "cylon-crazyflie",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/cylon-crazyflie.js",
   "description": "Cylon adaptor/drivers for Crazyflie nanocopter",
   "homepage": "http://cylonjs.com",
