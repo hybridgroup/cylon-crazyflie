@@ -8,25 +8,17 @@
 
 'use strict';
 
-#require './cylon-crazyflie'
+require './cylon-crazyflie'
 
 namespace = require 'node-namespace'
 
-namespace "Cylon.Driver", ->
-  class @Crazyflie extends Cylon.Basestar
+namespace "Cylon.Drivers", ->
+  class @Crazyflie extends Cylon.Driver
     constructor: (opts) ->
       super
-      @device = opts.device
-      @connection = @device.connection
       @proxyMethods Cylon.Crazyflie.Commands, @connection, this
 
     commands: -> Cylon.Crazyflie.Commands
-
-    start: (callback) ->
-      Logger.info "#{@device.name} started"
-
-      (callback)(null)
-      @device.emit 'start'
 
     stop: ->
       Logger.info "#{@device.name} stopped"

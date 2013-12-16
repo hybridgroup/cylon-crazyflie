@@ -12,12 +12,10 @@ require 'cylon'
 Aerogel = require 'aerogel'
 namespace = require 'node-namespace'
 
-namespace "Cylon.Adaptor", ->
-  class @Crazyflie extends Cylon.Basestar
+namespace "Cylon.Adaptors", ->
+  class @Crazyflie extends Cylon.Adaptor
     constructor: (opts) ->
       super
-      @connection = opts.connection
-      @name = opts.name
       @aerogelDriver = new Aerogel.CrazyDriver()
       @aerogelDriver.radio = new Aerogel.CrazyRadio() #findCopters()
       @copter = new Aerogel.Copter(@aerogelDriver)

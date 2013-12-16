@@ -19,14 +19,12 @@
 
   namespace = require('node-namespace');
 
-  namespace("Cylon.Adaptor", function() {
+  namespace("Cylon.Adaptors", function() {
     return this.Crazyflie = (function(_super) {
       __extends(Crazyflie, _super);
 
       function Crazyflie(opts) {
         Crazyflie.__super__.constructor.apply(this, arguments);
-        this.connection = opts.connection;
-        this.name = opts.name;
         this.aerogelDriver = new Aerogel.CrazyDriver();
         this.aerogelDriver.radio = new Aerogel.CrazyRadio();
         this.copter = new Aerogel.Copter(this.aerogelDriver);
@@ -57,7 +55,7 @@
 
       return Crazyflie;
 
-    })(Cylon.Basestar);
+    })(Cylon.Adaptor);
   });
 
 }).call(this);

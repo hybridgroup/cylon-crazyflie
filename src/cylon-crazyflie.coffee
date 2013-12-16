@@ -13,10 +13,10 @@ require './driver'
 
 module.exports =
   adaptor: (args...) ->
-    new Cylon.Adaptor.Crazyflie(args...)
+    new Cylon.Adaptors.Crazyflie(args...)
 
   driver: (args...) ->
-    new Cylon.Driver.Crazyflie(args...)
+    new Cylon.Drivers.Crazyflie(args...)
 
   register: (robot) ->
     Logger.info "Registering Crazyflie adaptor for #{robot.name}"

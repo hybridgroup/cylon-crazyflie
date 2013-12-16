@@ -2,11 +2,6 @@
 
 namespace = require 'node-namespace'
 
-# Needed so that tests don't implode
-namespace 'Cylon', ->
-  class @Basestar
-    constructor: ->
-
 crazyflie = source("cylon-crazyflie")
 
 describe "Cylon.Crazyflie", ->
@@ -36,11 +31,11 @@ describe "Cylon.Crazyflie", ->
     # hard equal
     data[0].should.be.equal obj
 
-  it "should be able to register", ->
+  it "can register", ->
     crazyflie.register.should.be.a 'function'
 
-  it "should be able to create adaptor", ->
+  it "can create adaptor", ->
     crazyflie.adaptor.should.be.a 'function'
     
-  it "should be able to create driver", ->
+  it "can create driver", ->
     crazyflie.driver.should.be.a 'function'

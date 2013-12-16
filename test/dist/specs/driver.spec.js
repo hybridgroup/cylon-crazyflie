@@ -1,8 +1,8 @@
 (function() {
   'use strict';
-  source("cylon-crazyflie");
+  source("driver");
 
-  describe('Cylon.Driver.Crazyflie', function() {
+  describe('Cylon.Drivers.Crazyflie', function() {
     return it('needs test coverage');
   });
 

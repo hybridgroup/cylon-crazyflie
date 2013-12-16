@@ -1,6 +1,6 @@
 'use strict';
 
-source("cylon-crazyflie")
+source("driver")
 
-describe 'Cylon.Driver.Crazyflie', ->
+describe 'Cylon.Drivers.Crazyflie', ->
   it 'needs test coverage'

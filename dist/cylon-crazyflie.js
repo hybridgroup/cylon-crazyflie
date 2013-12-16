@@ -26,7 +26,7 @@
         ctor.prototype = func.prototype;
         var child = new ctor, result = func.apply(child, args);
         return Object(result) === result ? result : child;
-      })(Cylon.Adaptor.Crazyflie, args, function(){});
+      })(Cylon.Adaptors.Crazyflie, args, function(){});
     },
     driver: function() {
       var args;
@@ -35,7 +35,7 @@
         ctor.prototype = func.prototype;
         var child = new ctor, result = func.apply(child, args);
         return Object(result) === result ? result : child;
-      })(Cylon.Driver.Crazyflie, args, function(){});
+      })(Cylon.Drivers.Crazyflie, args, function(){});
     },
     register: function(robot) {
       Logger.info("Registering Crazyflie adaptor for " + robot.name);
