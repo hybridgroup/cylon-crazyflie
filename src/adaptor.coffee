@@ -6,9 +6,10 @@
  * Licensed under the Apache 2.0 license.
 ###
 
-'use strict';
+'use strict'
 
 require 'cylon'
+
 Aerogel = require 'aerogel'
 namespace = require 'node-namespace'
 
@@ -17,12 +18,13 @@ namespace "Cylon.Adaptors", ->
     constructor: (opts) ->
       super
       @aerogelDriver = new Aerogel.CrazyDriver()
-      @aerogelDriver.radio = new Aerogel.CrazyRadio() #findCopters()
+      @aerogelDriver.radio = new Aerogel.CrazyRadio()
       @copter = new Aerogel.Copter(@aerogelDriver)
       @connector = @copter
       @proxyMethods Cylon.Crazyflie.Commands, @copter, this
 
-    commands: -> Cylon.Crazyflie.Commands
+    commands: ->
+      Cylon.Crazyflie.Commands
 
     connect: (callback) ->
       Logger.info "Connecting to Crazyflie '#{@name}' on port '#{@connection.port}'..."

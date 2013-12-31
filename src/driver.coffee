@@ -6,7 +6,7 @@
  * Licensed under the Apache 2.0 license.
 ###
 
-'use strict';
+'use strict'
 
 require './cylon-crazyflie'
 
@@ -18,7 +18,8 @@ namespace "Cylon.Drivers", ->
       super
       @proxyMethods Cylon.Crazyflie.Commands, @connection, this
 
-    commands: -> Cylon.Crazyflie.Commands
+    commands: ->
+      Cylon.Crazyflie.Commands
 
     stop: ->
       Logger.info "#{@device.name} stopped"
