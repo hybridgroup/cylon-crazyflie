@@ -22,6 +22,9 @@
       __extends(Crazyflie, _super);
 
       function Crazyflie(opts) {
+        if (opts == null) {
+          opts = {};
+        }
         Crazyflie.__super__.constructor.apply(this, arguments);
         this.proxyMethods(Cylon.Crazyflie.Commands, this.connection, this);
       }

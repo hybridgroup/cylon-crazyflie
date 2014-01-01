@@ -9,13 +9,14 @@
 'use strict'
 
 require 'cylon'
+require './commands'
 
 Aerogel = require 'aerogel'
 namespace = require 'node-namespace'
 
 namespace "Cylon.Adaptors", ->
   class @Crazyflie extends Cylon.Adaptor
-    constructor: (opts) ->
+    constructor: (opts = {}) ->
       super
       @aerogelDriver = new Aerogel.CrazyDriver()
       @aerogelDriver.radio = new Aerogel.CrazyRadio()

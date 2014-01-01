@@ -15,6 +15,8 @@
 
   require('cylon');
 
+  require('./commands');
+
   Aerogel = require('aerogel');
 
   namespace = require('node-namespace');
@@ -24,6 +26,9 @@
       __extends(Crazyflie, _super);
 
       function Crazyflie(opts) {
+        if (opts == null) {
+          opts = {};
+        }
         Crazyflie.__super__.constructor.apply(this, arguments);
         this.aerogelDriver = new Aerogel.CrazyDriver();
         this.aerogelDriver.radio = new Aerogel.CrazyRadio();

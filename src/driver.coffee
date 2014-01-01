@@ -14,7 +14,7 @@ namespace = require 'node-namespace'
 
 namespace "Cylon.Drivers", ->
   class @Crazyflie extends Cylon.Driver
-    constructor: (opts) ->
+    constructor: (opts = {}) ->
       super
       @proxyMethods Cylon.Crazyflie.Commands, @connection, this
 
