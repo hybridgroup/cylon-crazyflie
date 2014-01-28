@@ -33,11 +33,20 @@
         return Cylon.Crazyflie.Commands;
       };
 
+      # Public: Stops the driver
+      #
+      # Returns null.
       Crazyflie.prototype.stop = function() {
         Logger.info("" + this.device.name + " stopped");
         return this.connection.disconnect();
       };
 
+      # Public: Sets a param for the driver
+      #
+      # param - params
+      # value - params
+      #
+      # Returns null.
       Crazyflie.prototype.setParam = function(param, value) {
         return this.connection.setParam(param, value);
       };
