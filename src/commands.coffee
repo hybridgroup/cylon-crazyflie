@@ -12,7 +12,15 @@ namespace = require 'node-namespace'
 
 namespace "Cylon.Crazyflie", ->
   @Commands = [
+
+    # Public: Initiates take off sequence.
+    #
+    # Returns nil
     'takeoff',
+
+    # Public: Initiates a landing sequence.
+    #
+    # Returns nil
     'land',
     'hover',
     'setPitch',
