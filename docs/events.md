@@ -8,6 +8,8 @@ Sent when the device has been stopped.
 
 Set the parameters for crazyflie.
 
+##### Params
+
 - **param** - The params which to return data
 - **value** - The value which to return data
 
