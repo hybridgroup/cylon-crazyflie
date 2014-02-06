@@ -1,58 +1,82 @@
 # Commands
 
-## land() → nil
+## land()
 
-Public: Initiates a landing sequence.
+Initiates a landing sequence.
 
-Returns nil
+##### Returns 
 
-## takeoff() → nil
+`nil`
 
-Public: Initiates take off sequence.
+## takeoff()
 
-Returns nil
+Initiates take off sequence.
 
-## hover() → nil
+##### Returns 
 
-Public: Makes the crazyflie hover in a position.
+`nil`
 
-Returns nil
+## hover() 
 
-## setPitch(deg) → nil
+Makes the crazyflie hover in a position.
 
-Public: Orders crazyflie to go forward or backward by the amount specified by deg.
+##### Returns 
+
+`nil`
+
+## setPitch(deg)
+
+Orders crazyflie to go forward or backward by the amount specified by deg.
+
+##### Params
 
 - **deg** - The degrees which to return data
 
-Returns nil
+##### Returns 
 
-## setYaw(deg) → nil
+`nil`
 
-Public: Orders crazyflie to turn left or right by the amount specified by deg.
+## setYaw(deg) 
+
+Orders crazyflie to turn left or right by the amount specified by deg.
+
+##### Params
 
 - **deg** - The degrees which to return data
 
-Returns nil
+##### Returns 
 
-## setThrust(accelerate) → nil
+`nil`
 
-Public: Orders crazyflie to accelerate.
+## setThrust(accelerate) 
+
+Orders crazyflie to accelerate.
+
+##### Params
 
 - **accelerate** - The acceleration which to return data
 
-Returns nil
+##### Returns 
 
-## shutdown() → nil
+`nil`
 
-Public: Shutdown the device.
+## shutdown() 
 
-Returns nil
+Shutdown the device.
 
-## setParam(param, value) → (param, value)
+##### Returns 
 
-Public: Set the parameters for crazyflie.
+`nil`
+
+## setParam(param, value)
+
+Set the parameters for crazyflie.
+
+##### Params
 
 - **param** - params
 - **value** - params
 
-Returns (param, value)
+##### Returns 
+
+`(param, value)`
