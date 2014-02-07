@@ -16,6 +16,16 @@ Install the module with: `npm install cylon-crazyflie`
 
 You will also need to install the latest beta of firmware to the Crazyflie itself to use the 'hover' mode from [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin)
 
+### Ubuntu
+
+On Ubuntu, you will need to run:
+
+```
+sudo apt-get install build-essential pkg-config libusb-1.0-0-dev
+```
+
+before you will be able to run `npm install cylon-crazyflie`.
+
 ## Examples
 
 ### JavaScript
@@ -89,7 +99,7 @@ Thank you!
 
 ## Release History
 
-[![NPM](https://nodei.co/npm/cylon-crazyflie.png?compact=true)](https://nodei.co/npm/cylon-crazyflie/)
+Version 0.4.0 - Update to cylon 0.10.0
 
 Version 0.3.0 - Release for cylon 0.9.0
 
