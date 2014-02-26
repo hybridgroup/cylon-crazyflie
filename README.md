@@ -12,10 +12,6 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 ## Getting Started
 
-Install the module with: `npm install cylon-crazyflie`
-
-You will also need to install the latest beta of firmware to the Crazyflie itself to use the 'hover' mode from [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin)
-
 ### Ubuntu
 
 On Ubuntu, you will need to run:
@@ -24,7 +20,23 @@ On Ubuntu, you will need to run:
 sudo apt-get install build-essential pkg-config libusb-1.0-0-dev
 ```
 
-before you will be able to run `npm install cylon-crazyflie`.
+before you will be able to install `cylon-crazyflie`.
+
+### OSX
+
+On OSX, you will need to run:
+
+```
+brew install libusb
+```
+
+before you will be able to install `cylon-crazyflie`.
+
+### Installation - All Platforms
+
+Install the module with: `npm install cylon-crazyflie`
+
+You will also need to install the latest beta of firmware to the Crazyflie itself to use the 'hover' mode from [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin)
 
 ## Examples
 
