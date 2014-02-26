@@ -27,10 +27,17 @@ namespace "Cylon.Adaptors", ->
     commands: ->
       Cylon.Crazyflie.Commands
 
-    connect: (callback) ->
+    connect: (callback) ->      
       Logger.info "Connecting to Crazyflie '#{@name}' on port '#{@connection.port}'..."
+      port = @connection.port.toString()
+      Logger.info port
+      if port is "none"
+        @connectFirstCopter(callback)
+      else
+        @doConnect(port, callback)
 
-      @copter.connect(@connection.port.toString()).then ->
+    doConnect: (port, callback) ->        
+      @copter.connect(port).then ->
         (callback)(null)
         @connection.emit 'connect'
 
@@ -40,3 +47,15 @@ namespace "Cylon.Adaptors", ->
 
     setParam: (param, value) ->
       @copter.driver.parameters.set(param, value)
+
+    connectFirstCopter: (callback) ->
+      @aerogelDriver.findCopters().then (copters) ->
+        if copters.length is 0
+          console.error('No copters found! Is your copter turned on?');
+          process.exit(1)
+        else
+          @doConnect(copters[0], callback)
+
+    findCopters: (callback) ->
+      @aerogelDriver.findCopters().then (copters) ->
+        return (callback)(copters);

@@ -27,5 +27,6 @@ namespace "Cylon.Crazyflie", ->
     'setYaw',
     'setThrust',
     'shutdown',
-    'setParam'
+    'setParam',
+    'findCopters'
   ]

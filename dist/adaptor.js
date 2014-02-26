@@ -42,8 +42,19 @@
       };
 
       Crazyflie.prototype.connect = function(callback) {
+        var port;
         Logger.info("Connecting to Crazyflie '" + this.name + "' on port '" + this.connection.port + "'...");
-        return this.copter.connect(this.connection.port.toString()).then(function() {
+        port = this.connection.port.toString();
+        Logger.info(port);
+        if (port === "none") {
+          return this.connectFirstCopter(callback);
+        } else {
+          return this.doConnect(port, callback);
+        }
+      };
+
+      Crazyflie.prototype.doConnect = function(port, callback) {
+        return this.copter.connect(port).then(function() {
           callback(null);
           return this.connection.emit('connect');
         });
@@ -56,6 +67,23 @@
 
       Crazyflie.prototype.setParam = function(param, value) {
         return this.copter.driver.parameters.set(param, value);
+      };
+
+      Crazyflie.prototype.connectFirstCopter = function(callback) {
+        return this.aerogelDriver.findCopters().then(function(copters) {
+          if (copters.length === 0) {
+            console.error('No copters found! Is your copter turned on?');
+            return process.exit(1);
+          } else {
+            return this.doConnect(copters[0], callback);
+          }
+        });
+      };
+
+      Crazyflie.prototype.findCopters = function(callback) {
+        return this.aerogelDriver.findCopters().then(function(copters) {
+          return callback(copters);
+        });
       };
 
       return Crazyflie;

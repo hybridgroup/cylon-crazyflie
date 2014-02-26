@@ -14,7 +14,7 @@
   namespace = require('node-namespace');
 
   namespace("Cylon.Crazyflie", function() {
-    return this.Commands = ['takeoff', 'land', 'hover', 'setPitch', 'setYaw', 'setThrust', 'shutdown', 'setParam'];
+    return this.Commands = ['takeoff', 'land', 'hover', 'setPitch', 'setYaw', 'setThrust', 'shutdown', 'setParam', 'findCopters'];
   });
 
 }).call(this);
