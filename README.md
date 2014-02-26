@@ -36,7 +36,7 @@ before you will be able to install `cylon-crazyflie`.
 
 Install the module with: `npm install cylon-crazyflie`
 
-You will also need to install the latest beta of firmware to the Crazyflie itself to use the 'hover' mode from [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2013.11-beta1.bin)
+You will also need to install the latest firmware to the Crazyflie itself to use the 'hover' mode from [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin)
 
 ## Examples
 
