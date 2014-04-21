@@ -5,30 +5,27 @@
   "description": "Cylon adaptor/drivers for Crazyflie nanocopter",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-crazyflie/issues",
-  "author": {
-    "name": "The Hybrid Group",
-    "email": "cylonjs@hybrigroup.com",
-    "url": "http://hybridgroup.com"
-  },
+
+  "author": "The Hybrid Group <cylonjs@hybridgroup.com>",
+
   "repository": {
     "type": "git",
     "url": "https://github.com/hybridgroup/cylon-crazyflie"
   },
-  "licenses": [
-    {
-      "type": "Apache 2.0"
-    }
-  ],
+
+  "license": "Apache 2.0",
+
   "devDependencies": {
     "sinon-chai": "~2.4.0",
-    "chai": "~1.7.2",
-    "mocha": "~1.12.1",
-    "sinon": "~1.7.3",
-    "jshint": "~2.4.4"
+    "chai":       "~1.7.2",
+    "mocha":      "~1.12.1",
+    "sinon":      "~1.7.3",
+    "jshint":     "~2.4.4"
   },
+
   "dependencies": {
     "node-namespace": "~1.0.0",
-    "cylon": ">= 0.12.0",
-    "aerogel": "0.0.5"
+    "cylon":          ">= 0.12.0",
+    "aerogel":        "0.0.5"
   }
 }
