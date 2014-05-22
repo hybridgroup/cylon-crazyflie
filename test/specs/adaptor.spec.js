@@ -1,12 +1,13 @@
 "use strict";
 
-source('adaptor');
+var Adaptor = source('adaptor'),
+    Commands = source('commands');
 
 describe('Cylon.Adaptors.Crazyflie', function() {
-  var crazyflie = new Cylon.Adaptors.Crazyflie;
+  var crazyflie = new Adaptor();
 
   it("exposes a 'commands' method exposing all available commands", function() {
-    expect(crazyflie.commands()).to.be.eql(Cylon.Crazyflie.Commands);
+    expect(crazyflie.commands()).to.be.eql(Commands);
   });
 
   it("exposes a 'connect' method to connect to the Crazyflie", function() {
@@ -18,16 +19,17 @@ describe('Cylon.Adaptors.Crazyflie', function() {
   });
 
   it("proxies parameter setting via #setParam", function() {
-    var spy;
-    spy = sinon.spy();
+    var paramSpy = spy();
+
     crazyflie.copter = {
       driver: {
         parameters: {
-          set: spy
+          set: paramSpy
         }
       }
     };
+
     crazyflie.setParam("testing", "true");
-    assert(spy.calledWith("testing", "true"));
+    expect(paramSpy).to.be.calledWith("testing", "true");
   });
 });
