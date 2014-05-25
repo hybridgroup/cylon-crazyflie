@@ -1,13 +1,11 @@
 "use strict";
 
-source('commands');
+var Commands = source('commands');
 
 describe('Cylon.Crazyflie.Commands', function() {
   it('is an array of string commands', function() {
-    var commands = Cylon.Crazyflie.Commands;
-
-    for (var i = 0; i < commands.length; i++) {
-      var command = commands[i];
+    for (var i = 0; i < Commands.length; i++) {
+      var command = Commands[i];
       expect(command).to.be.a('string');
     }
   });

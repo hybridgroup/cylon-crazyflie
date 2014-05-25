@@ -1,20 +1,19 @@
 "use strict";
 
-var namespace = require('node-namespace'),
-    crazyflie = source("cylon-crazyflie");
+var module = source("cylon-crazyflie");
 
 describe("Cylon.Crazyflie", function() {
   it("can register the adaptor and driver", function() {
-    crazyflie.register.should.be.a('function');
+    module.register.should.be.a('function');
   });
 
   it("can create adaptor", function() {
-    crazyflie.adaptor.should.be.a('function');
-    expect(crazyflie.adaptor()).to.be.a('object');
+    module.adaptor.should.be.a('function');
+    expect(module.adaptor()).to.be.a('object');
   });
 
   it("can create driver", function() {
-    crazyflie.driver.should.be.a('function');
-    expect(crazyflie.driver({ device: {} })).to.be.a('object');
+    module.driver.should.be.a('function');
+    expect(module.driver({ device: {} })).to.be.a('object');
   });
 });
