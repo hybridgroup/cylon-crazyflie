@@ -111,6 +111,8 @@ Thank you!
 
 ## Release History
 
+Version 0.7.0 - Compatibility with Cylon 0.14.0, remove node-namespace.
+
 Version 0.6.0 - Update to cylon 0.12.0
 
 Version 0.5.0 - Update to cylon 0.11.0, refactor to pure JavaScript
