@@ -5,8 +5,6 @@ Cylon.robot({
   device: {name: 'drone', driver: 'crazyflie'},
 
   work: function(my) {
-    my.crazyflie.findCopters(function(copters) {
-      Logger.info(copters);
-    });
+    my.crazyflie.findCopters(console.log);
   }
 }).start();
