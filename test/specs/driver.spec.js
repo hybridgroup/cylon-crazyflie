@@ -7,7 +7,7 @@ describe('Cylon.Drivers.Crazyflie', function() {
   var crazyflie = new Driver({ device: {} });
 
   it("exposes a 'commands' method exposing all available commands", function() {
-    expect(crazyflie.commands()).to.be.eql(Commands);
+    expect(crazyflie.commands).to.be.eql(Commands);
   });
 
   it("exposes a 'stop' method to disconnect from the Crazyflie", function() {

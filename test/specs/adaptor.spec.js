@@ -7,7 +7,7 @@ describe('Cylon.Adaptors.Crazyflie', function() {
   var crazyflie = new Adaptor();
 
   it("exposes a 'commands' method exposing all available commands", function() {
-    expect(crazyflie.commands()).to.be.eql(Commands);
+    expect(crazyflie.commands).to.be.eql(Commands);
   });
 
   it("exposes a 'connect' method to connect to the Crazyflie", function() {
