@@ -38,7 +38,7 @@ Install the module with: `npm install cylon-crazyflie`
 
 You will also need to install the latest firmware to the Crazyflie itself to use the 'hover' mode from [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin)
 
-## Examples
+## Example
 
 ### JavaScript
 ```javascript
@@ -60,28 +60,6 @@ Cylon.robot({
     });
   }
 }).start();
-```
-
-### CoffeeScript
-```
-Cylon = require 'cylon'
-
-Cylon.robot
-  connection:
-    name: 'crazyflie', adaptor: 'crazyflie', port: "radio://1/10/250KPS"
-
-  device:
-    name: 'drone', driver: 'crazyflie'
-
-  work: (my) ->
-    my.drone.on 'start', ->
-      my.drone.takeoff()
-      after 10.seconds(), ->
-        my.drone.land()
-      after 15.seconds(), ->
-        my.drone.stop()
-
-.start()
 ```
 
 ## Hover Mode
