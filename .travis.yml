@@ -1,7 +1,10 @@
-language: node_js
-script: "make test"
-node_js:
-  - '0.10'
+language: objective-c
+
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq libusb-1.0-0-dev
+  - brew install libusb node
+
+install:
+  - npm install
+
+script:
+  - make
