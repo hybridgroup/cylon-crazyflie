@@ -2,18 +2,40 @@
 
 var module = source("cylon-crazyflie");
 
+var Adaptor = source('adaptor'),
+    Driver = source('driver');
+
 describe("Cylon.Crazyflie", function() {
-  it("can register the adaptor and driver", function() {
-    module.register.should.be.a('function');
+  describe("#register", function() {
+    var bot, adaptor, driver;
+
+    beforeEach(function() {
+      bot = { registerAdaptor: spy(), registerDriver: spy() };
+
+      adaptor = bot.registerAdaptor;
+      driver = bot.registerDriver;
+
+      module.register(bot);
+    });
+
+    it("registers the 'crazyflie' adaptor with the robot", function() {
+      expect(adaptor).to.be.calledWith('cylon-crazyflie', 'crazyflie');
+    });
+
+    it("registers the 'crazyflie' driver with the robot", function() {
+      expect(driver).to.be.calledWith('cylon-crazyflie', 'crazyflie');
+    });
   });
 
-  it("can create adaptor", function() {
-    module.adaptor.should.be.a('function');
-    expect(module.adaptor()).to.be.a('object');
+  describe("#adaptor", function() {
+    it("returns a new instance of the Crazyflie adaptor", function() {
+      expect(module.adaptor()).to.be.an.instanceOf(Adaptor);
+    });
   });
 
-  it("can create driver", function() {
-    module.driver.should.be.a('function');
-    expect(module.driver({ device: {} })).to.be.a('object');
+  describe("#driver", function() {
+    it("returns a new instance of the Crazyflie driver", function() {
+      expect(module.driver({ device: {} })).to.be.an.instanceOf(Driver);
+    });
   });
 });
