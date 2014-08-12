@@ -9,14 +9,9 @@ describe('Cylon.Drivers.Crazyflie', function() {
   var driver;
 
   beforeEach(function() {
-    stub(Driver.prototype, 'proxyMethods');
     driver = new Driver({
-      device: {}
+      device: { connection: {} }
     });
-  });
-
-  afterEach(function() {
-    Driver.prototype.proxyMethods.restore();
   });
 
   it("subclasses Cylon.Driver", function() {
@@ -25,16 +20,16 @@ describe('Cylon.Drivers.Crazyflie', function() {
   });
 
   describe("constructor", function() {
-    it("sets @commands to the Crazyflie commands list", function() {
-      expect(driver.commands).to.be.eql(Commands);
+    it("proxies Crazyflie methods to the connection", function() {
+      driver.connection.takeoff = spy();
+      driver.takeoff('takeoff');
+      expect(driver.connection.takeoff).to.be.calledWith('takeoff');
     });
 
-    it("proxies Crazyflie methods to the connection", function() {
-      expect(driver.proxyMethods).to.be.calledWith(
-        Commands,
-        driver.connection,
-        driver
-      );
+    it("sets up #commands", function() {
+      for (var c in driver.commands) {
+        expect(driver.commands[c]).to.be.a('function');
+      }
     });
   });
 
