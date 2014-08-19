@@ -1,6 +1,6 @@
 {
   "name": "cylon-crazyflie",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "main": "lib/cylon-crazyflie.js",
   "description": "Cylon adaptor/drivers for Crazyflie nanocopter",
   "homepage": "http://cylonjs.com",
@@ -24,11 +24,11 @@
   },
 
   "peerDependencies": {
-    "cylon": ">= 0.16.0 < 1"
+    "cylon": ">= 0.18.0 < 1"
   },
 
   "dependencies": {
-    "cylon":   "~0.16.0",
+    "cylon":   "~0.18.0",
     "aerogel": "0.0.5"
   }
 }
