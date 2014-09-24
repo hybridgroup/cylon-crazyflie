@@ -5,16 +5,14 @@ Cylon.robot({
   device: {name: 'drone', driver: 'crazyflie'},
 
   work: function(my) {
-    my.drone.on('start', function() {
-      my.drone.takeoff();
+    my.drone.takeoff();
 
-      after((2).seconds(), function() { 
-        my.drone.land();
-      });
+    after((2).seconds(), function() { 
+      my.drone.land();
+    });
 
-      after((5).seconds(), function() { 
-        my.drone.stop();
-      });
+    after((5).seconds(), function() { 
+      my.drone.stop();
     });
   }
 }).start();

@@ -35,7 +35,8 @@ describe("Cylon.Crazyflie", function() {
 
   describe("#driver", function() {
     it("returns a new instance of the Crazyflie driver", function() {
-      expect(module.driver({ device: {} })).to.be.an.instanceOf(Driver);
+      var opts = { device: { connection: {} } };
+      expect(module.driver(opts)).to.be.an.instanceOf(Driver);
     });
   });
 });
