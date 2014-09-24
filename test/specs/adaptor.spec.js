@@ -180,7 +180,7 @@ describe('Adaptor', function() {
 
     it("uses the Aerogel Driver's #findCopters method to find all crazyflies", function() {
       adaptor.findCopters(callback);
-      expect(callback).to.be.calledWith([]);
+      expect(callback).to.be.calledWith(null, []);
     });
   });
 });
