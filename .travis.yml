@@ -1,4 +1,8 @@
-language: "objective-c"
-before_install: "brew install libusb node"
-install: "npm install"
-script: "make"
+language: node_js
+compiler: clang
+before_install:
+  - sudo apt-get install libusb-dev
+install:
+  - npm install
+script:
+  - make
