@@ -1,5 +1,4 @@
 language: "objective-c"
 before_install: "brew install libusb node"
 install: "npm install"
-before_script: 'if [[ "$TRAVIS_BRANCH" != "master" ]]; then npm install git://github.com/hybridgroup/cylon.git#dev; fi'
 script: "make"
