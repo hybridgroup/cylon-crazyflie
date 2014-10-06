@@ -1,8 +1,10 @@
 language: node_js
+node_js: '0.10'
 compiler: clang
-before_install:
-  - sudo apt-get install libusb-1.0-0-dev
 install:
+  - sudo apt-get install libusb-1.0-0-dev
   - npm install
+  - npm install -g istanbul codeclimate-test-reporter
 script:
-  - make
+  - make cover
+  - CODECLIMATE_REPO_TOKEN=476fff97ea6eb7507dcadccd4be385186c37c129b6d9de5ad5104b2714af0c56 codeclimate < coverage/lcov.info
