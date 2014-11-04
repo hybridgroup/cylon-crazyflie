@@ -6,27 +6,17 @@ var Adaptor = source('adaptor'),
     Driver = source('driver');
 
 describe("Cylon.Crazyflie", function() {
-  describe("#register", function() {
-    var bot, adaptor, driver;
-
-    beforeEach(function() {
-      bot = { registerAdaptor: spy(), registerDriver: spy() };
-
-      adaptor = bot.registerAdaptor;
-      driver = bot.registerDriver;
-
-      module.register(bot);
-    });
-
-    it("registers the 'crazyflie' adaptor with the robot", function() {
-      expect(adaptor).to.be.calledWith('cylon-crazyflie', 'crazyflie');
-    });
-
-    it("registers the 'crazyflie' driver with the robot", function() {
-      expect(driver).to.be.calledWith('cylon-crazyflie', 'crazyflie');
+  describe("#adaptors", function() {
+    it('is an array of supplied adaptors', function() {
+      expect(module.adaptors).to.be.eql(['crazyflie']);
     });
   });
 
+  describe("#drivers", function() {
+    it('is an array of supplied drivers', function() {
+      expect(module.drivers).to.be.eql(['crazyflie']);
+    });
+  });
   describe("#adaptor", function() {
     it("returns a new instance of the Crazyflie adaptor", function() {
       expect(module.adaptor()).to.be.an.instanceOf(Adaptor);
