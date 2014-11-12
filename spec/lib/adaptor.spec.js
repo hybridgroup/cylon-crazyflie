@@ -79,9 +79,9 @@ describe('Adaptor', function() {
       stub(adaptor, 'doConnect');
     });
 
-    context("if @connection.port is 'none'", function() {
+    context("if @port is not specified", function() {
       beforeEach(function() {
-        adaptor.connection = { port: 'none' };
+        adaptor.port = null;
         adaptor.connect(callback);
       });
 
@@ -90,9 +90,9 @@ describe('Adaptor', function() {
       });
     });
 
-    context("if @connection.port is specified", function() {
+    context("if @port is specified", function() {
       beforeEach(function() {
-        adaptor.connection = { port: 'hello' };
+        adaptor.port = 'hello';
         adaptor.connect(callback);
       });
 
@@ -109,7 +109,7 @@ describe('Adaptor', function() {
       callback = spy();
       promise = { then: stub().yields() };
 
-      adaptor.connection = { emit: spy() };
+      adaptor.emit = spy();
       adaptor.copter = { connect: stub().returns(promise) }
       adaptor.doConnect("port", callback);
     });
@@ -120,7 +120,7 @@ describe('Adaptor', function() {
 
     context("after the copter is connected", function() {
       it("emits the 'connect' event", function() {
-        expect(adaptor.connection.emit).to.be.calledWith('connect');
+        expect(adaptor.emit).to.be.calledWith('connect');
       });
 
       it("triggers the callback", function() {

@@ -10,7 +10,7 @@ describe('Cylon.Drivers.Crazyflie', function() {
 
   beforeEach(function() {
     driver = new Driver({
-      device: { connection: {} }
+      adaptor: {}
     });
   });
 
@@ -21,9 +21,9 @@ describe('Cylon.Drivers.Crazyflie', function() {
 
   describe("constructor", function() {
     it("proxies Crazyflie methods to the connection", function() {
-      driver.connection.takeoff = spy();
+      driver.adaptor.takeoff = spy();
       driver.takeoff('takeoff');
-      expect(driver.connection.takeoff).to.be.calledWith('takeoff');
+      expect(driver.adaptor.takeoff).to.be.calledWith('takeoff');
     });
 
     it("sets up #commands", function() {
@@ -35,12 +35,12 @@ describe('Cylon.Drivers.Crazyflie', function() {
 
   describe("#setParam", function() {
     beforeEach(function() {
-      driver.connection = { setParam: spy() }
+      driver.adaptor = { setParam: spy() }
     });
 
-    it("passes the param and value to the connection", function() {
+    it("passes the param and value to the adaptor", function() {
       driver.setParam("hello", "world");
-      expect(driver.connection.setParam).to.be.calledWith("hello", "world");
+      expect(driver.adaptor.setParam).to.be.calledWith("hello", "world");
     })
   });
 });

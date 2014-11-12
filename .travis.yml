@@ -4,6 +4,7 @@ compiler: clang
 install:
   - sudo apt-get install libusb-1.0-0-dev
   - npm install
+  - npm install git://github.com/hybridgroup/cylon.git
   - npm install -g istanbul codeclimate-test-reporter
 script:
   - make cover
