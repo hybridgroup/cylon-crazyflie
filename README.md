@@ -10,37 +10,29 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-crazyflie.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-crazyflie) [![Code Climate](https://codeclimate.com/github/hybridgroup/cylon-crazyflie/badges/gpa.svg)](https://codeclimate.com/github/hybridgroup/cylon-crazyflie) [![Test Coverage](https://codeclimate.com/github/hybridgroup/cylon-crazyflie/badges/coverage.svg)](https://codeclimate.com/github/hybridgroup/cylon-crazyflie)
 
-## Getting Started
+## How to Install
 
-### Ubuntu
+### Dependencies
 
-On Ubuntu, you will need to run:
+On Linux, you need to install some packages before you can install the NPM module:
 
-```
-sudo apt-get install build-essential pkg-config libusb-1.0-0-dev
-```
+    $ sudo apt-get install build-essential pkg-config libusb-1.0-0-dev
 
-before you will be able to install `cylon-crazyflie`.
+And on OS X, you need to have the `libusb` package to install the module:
 
-### OSX
+    $ brew install libusb
 
-On OSX, you will need to run:
+Install the module with:
 
-```
-brew install libusb
-```
+    $ npm install cylon-crazyflie
 
-before you will be able to install `cylon-crazyflie`.
+You will also need to install the latest beta firmware to the Crazyflie itself to use the 'hover' mode:
+[https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin).
 
-### Installation - All Platforms
+## How to Use
 
-Install the module with: `npm install cylon-crazyflie`
+This small program causes the Crazyflie to takeoff for 10 seconds.
 
-You will also need to install the latest firmware to the Crazyflie itself to use the 'hover' mode from [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin)
-
-## Example
-
-### JavaScript
 ```javascript
 var Cylon = require('cylon');
 
@@ -55,23 +47,39 @@ Cylon.robot({
 
   work: function(my) {
     my.drone.takeoff();
-    after((10).seconds(), function() { 
+    after((10).seconds(), function() {
       my.drone.land();
     });
-    after((15).seconds(), function() { 
+    after((15).seconds(), function() {
       my.drone.stop();
     });
   }
 }).start();
 ```
 
-## Hover Mode
+### Hover Mode
 
 ```
   my.drone.setParam('flightmode.althold', true);
 ```
 
+## How to Connect
+
+The Crazyflie uses a 2.4 GHz radio to communicate.
+There is a USB dongle called the Crazyradio that is required to control the Crazyflie quadcopter.
+
+If you are have a USB 3.0 port, you might run into this issue:
+
+[http://stackoverflow.com/questions/17204253/crazyflie-usb-3-0-incompability](http://stackoverflow.com/questions/17204253/crazyflie-usb-3-0-incompability).
+
+### Ubuntu
+
+You need to install some udev-rules to be able to communicate with the crazyflie, it is a good thing that we have a [Gort](http://gort.io) command that does just that:
+
+    $ gort crazyflie set-udev-rules
+
 ## Documentation
+
 We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
 
 Thank you!
