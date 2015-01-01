@@ -1,12 +1,14 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    crazyflie: { adaptor: 'crazyflie', port: 'radio://1/20/1MPS' }
+    crazyflie: { adaptor: "crazyflie", port: "radio://1/20/1MPS" }
   },
 
   devices: {
-    drone: { driver: 'crazyflie'}
+    drone: { driver: "crazyflie"}
   },
 
   work: function(my) {

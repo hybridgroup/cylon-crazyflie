@@ -1,12 +1,13 @@
+/* jshint expr:true */
 "use strict";
 
-var Adaptor = source('adaptor'),
-    Commands = source('commands');
+var Adaptor = source("adaptor"),
+    Commands = source("commands");
 
-var Aerogel = require('aerogel'),
-    Cylon = require('cylon');
+var Aerogel = require("aerogel"),
+    Cylon = require("cylon");
 
-describe('Adaptor', function() {
+describe("Adaptor", function() {
   var adaptor, aerogelDriver, aerogelRadio, copter;
 
   beforeEach(function() {
@@ -14,9 +15,9 @@ describe('Adaptor', function() {
     aerogelRadio = {};
     copter = {};
 
-    stub(Aerogel, 'CrazyDriver').returns(aerogelDriver);
-    stub(Aerogel, 'CrazyRadio').returns(aerogelRadio);
-    stub(Aerogel, 'Copter').returns(copter);
+    stub(Aerogel, "CrazyDriver").returns(aerogelDriver);
+    stub(Aerogel, "CrazyRadio").returns(aerogelRadio);
+    stub(Aerogel, "Copter").returns(copter);
 
     adaptor = new Adaptor();
   });
@@ -34,7 +35,7 @@ describe('Adaptor', function() {
 
   describe("#constructor", function() {
     beforeEach(function() {
-      stub(Adaptor.prototype, 'proxyMethods');
+      stub(Adaptor.prototype, "proxyMethods");
       adaptor = new Adaptor();
     });
 
@@ -46,25 +47,25 @@ describe('Adaptor', function() {
       expect(adaptor.aerogelDriver).to.be.eql(aerogelDriver);
     });
 
-    it("sets @aerogelDriver's 'radio' property to a new crazy radio", function() {
+    it("sets @aerogelDriver.radio to a new crazy radio", function() {
       expect(adaptor.aerogelDriver.radio).to.be.eql(aerogelRadio);
     });
 
-    it('sets @copter to a new Aerogel Coptor instance', function() {
+    it("sets @copter to a new Aerogel Coptor instance", function() {
       expect(Aerogel.Copter).to.be.calledWithNew;
       expect(Aerogel.Copter).to.be.calledWith(aerogelDriver);
       expect(adaptor.copter).to.be.eql(copter);
     });
 
-    it('sets @connector to the copter instance', function() {
-      expect(adaptor.connector).to.be.eql(copter)
+    it("sets @connector to the copter instance", function() {
+      expect(adaptor.connector).to.be.eql(copter);
     });
 
     it("sets @commands to the list of Crazyflie commands", function() {
       expect(adaptor.commands).to.be.eql(Commands);
     });
 
-    it('proxies methods between the adaptor and the copter', function() {
+    it("proxies methods between the adaptor and the copter", function() {
       expect(adaptor.proxyMethods).to.be.calledWith(Commands, copter, adaptor);
     });
   });
@@ -75,8 +76,8 @@ describe('Adaptor', function() {
     beforeEach(function() {
       callback = spy();
 
-      stub(adaptor, 'connectFirstCopter');
-      stub(adaptor, 'doConnect');
+      stub(adaptor, "connectFirstCopter");
+      stub(adaptor, "doConnect");
     });
 
     context("if @port is not specified", function() {
@@ -92,12 +93,12 @@ describe('Adaptor', function() {
 
     context("if @port is specified", function() {
       beforeEach(function() {
-        adaptor.port = 'hello';
+        adaptor.port = "hello";
         adaptor.connect(callback);
       });
 
-      it("calls #doConnect with the port and the provided callback", function() {
-        expect(adaptor.doConnect).to.be.calledWith('hello', callback);
+      it("calls #doConnect with the provided port and callback", function() {
+        expect(adaptor.doConnect).to.be.calledWith("hello", callback);
       });
     });
   });
@@ -110,17 +111,17 @@ describe('Adaptor', function() {
       promise = { then: stub().yields() };
 
       adaptor.emit = spy();
-      adaptor.copter = { connect: stub().returns(promise) }
+      adaptor.copter = { connect: stub().returns(promise) };
       adaptor.doConnect("port", callback);
     });
 
     it("tells the copter to connect on the provided port", function() {
       expect(adaptor.copter.connect).to.be.calledWith("port");
-    })
+    });
 
     context("after the copter is connected", function() {
       it("emits the 'connect' event", function() {
-        expect(adaptor.emit).to.be.calledWith('connect');
+        expect(adaptor.emit).to.be.calledWith("connect");
       });
 
       it("triggers the callback", function() {
@@ -138,7 +139,7 @@ describe('Adaptor', function() {
 
       aerogelDriver.findCopters = stub().returns(promise);
 
-      stub(adaptor, 'doConnect');
+      stub(adaptor, "doConnect");
     });
 
     afterEach(function() {
@@ -152,18 +153,18 @@ describe('Adaptor', function() {
 
       it("throws an error", function() {
         var fn = function() { adaptor.connectFirstCopter(callback); };
-        expect(fn).to.throw(Error, "No copters found!")
+        expect(fn).to.throw(Error, "No copters found!");
       });
     });
 
     context("if a copter is found", function() {
       beforeEach(function() {
-        promise.then.yields(['/dev/null']);
+        promise.then.yields(["/dev/null"]);
       });
 
       it("connects to the copter", function() {
         adaptor.connectFirstCopter(callback);
-        expect(adaptor.doConnect).to.be.calledWith('/dev/null', callback);
+        expect(adaptor.doConnect).to.be.calledWith("/dev/null", callback);
       });
     });
   });
@@ -178,7 +179,7 @@ describe('Adaptor', function() {
       aerogelDriver.findCopters = stub().returns(promise);
     });
 
-    it("uses the Aerogel Driver's #findCopters method to find all crazyflies", function() {
+    it("uses the driver's #findCopters method to find crazyflies", function() {
       adaptor.findCopters(callback);
       expect(callback).to.be.calledWith(null, []);
     });
