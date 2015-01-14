@@ -1,6 +1,8 @@
 language: node_js
 node_js: '0.10'
 compiler: clang
+before_install:
+  - "mkdir ~/.npm"
 install:
   - sudo apt-get install libusb-1.0-0-dev
   - npm install
