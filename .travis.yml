@@ -1,6 +1,6 @@
 language: objective-c
 before_install:
-  - brew install libusb node
+  - brew install libusb
 install:
   - npm install
   - npm install git://github.com/hybridgroup/cylon.git
