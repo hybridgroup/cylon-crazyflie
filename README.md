@@ -24,7 +24,7 @@ And on OS X, you need to have the `libusb` package to install the module:
 
 Install the module with:
 
-    $ npm install cylon-crazyflie
+    $ npm install cylon cylon-crazyflie
 
 You will also need to install the latest beta firmware to the Crazyflie itself to use the 'hover' mode:
 [https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin](https://bitbucket.org/bitcraze/crazyflie-firmware/downloads/Crazyflie_2014.01.0.bin).
