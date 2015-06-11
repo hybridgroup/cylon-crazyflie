@@ -13,7 +13,19 @@
     "url": "https://github.com/hybridgroup/cylon-crazyflie"
   },
 
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
+
+  "keywords": [
+    "cylon",
+    "cylonjs",
+    "cylons",
+    "robot",
+    "robots",
+    "robotics",
+    "iot",
+    "drone",
+    "crazyflie"
+  ],
 
   "devDependencies": {
     "sinon-chai": "~2.4.0",
