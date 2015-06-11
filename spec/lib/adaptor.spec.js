@@ -1,8 +1,7 @@
-/* jshint expr:true */
 "use strict";
 
-var Adaptor = source("adaptor"),
-    Commands = source("commands");
+var Adaptor = lib("adaptor"),
+    Commands = lib("commands");
 
 var Aerogel = require("aerogel"),
     Cylon = require("cylon");

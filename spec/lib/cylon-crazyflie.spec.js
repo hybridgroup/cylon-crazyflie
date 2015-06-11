@@ -1,10 +1,9 @@
-/* jshint expr:true */
 "use strict";
 
-var crazyflie = source("cylon-crazyflie");
+var crazyflie = lib("cylon-crazyflie");
 
-var Adaptor = source("adaptor"),
-    Driver = source("driver");
+var Adaptor = lib("adaptor"),
+    Driver = lib("driver");
 
 describe("Cylon.Crazyflie", function() {
   describe("#adaptors", function() {
