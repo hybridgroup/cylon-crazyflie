@@ -1,6 +1,6 @@
 "use strict";
 
-var crazyflie = lib("cylon-crazyflie");
+var crazyflie = lib("../");
 
 var Adaptor = lib("adaptor"),
     Driver = lib("driver");
